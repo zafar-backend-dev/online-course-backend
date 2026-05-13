@@ -1,4 +1,4 @@
-package com.example.onlinecoursebackend.db.entity.category;
+package com.example.onlinecoursebackend.db.entity.course;
 
 import com.example.onlinecoursebackend.db.entity.enums.CourseStatus;
 import com.example.onlinecoursebackend.db.entity.user.User;

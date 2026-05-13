@@ -1,10 +1,9 @@
-package com.example.onlinecoursebackend.db.entity.category;
+package com.example.onlinecoursebackend.db.entity.course;
 
 import com.example.onlinecoursebackend.db.entity.user.User;
 import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
-import java.util.UUID;
 
 @Entity
 @Table(name = "categories")

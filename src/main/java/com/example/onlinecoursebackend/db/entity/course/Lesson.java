@@ -1,8 +1,7 @@
 // 3. Lesson.java — güncellendi
-package com.example.onlinecoursebackend.db.entity.category;
+package com.example.onlinecoursebackend.db.entity.course;
 
 import com.example.onlinecoursebackend.db.entity.enums.LessonStatus;
-import com.example.onlinecoursebackend.db.entity.user.User;
 import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
