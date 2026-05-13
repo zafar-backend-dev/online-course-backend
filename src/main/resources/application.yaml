@@ -56,7 +56,3 @@ jwt:
   refresh:
     expiration:
       ms: 3600000000000
-target:
-  customer:
-    telegram-channel: https://t.me/oson_market_uzb
-    instagram: https://instagram.com/osonmarket_official
