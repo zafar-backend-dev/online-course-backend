@@ -10,6 +10,7 @@ import java.util.List;
 import java.util.UUID;
 
 public interface UserSocialLinkRepository extends JpaRepository<UserSocialLink, UUID> {
-     @Query("select l from UserSocialLink l where l.userProfile.id = :userProfileId and l.active=true")
+    @Query("select l from UserSocialLink l where l.userProfile.id = :userProfileId and l.active=true")
     List<UserSocialLink> findByUserProfileId(@Param("userProfileId") UUID userProfileId);
+
 }

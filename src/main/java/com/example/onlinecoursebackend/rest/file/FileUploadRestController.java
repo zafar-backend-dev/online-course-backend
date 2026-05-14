@@ -92,14 +92,14 @@ public class FileUploadRestController {
         }
     }
 
-    @Operation(
+   /* @Operation(
             summary = "Dosya sil",
             description = "Sunucudan belirtilen dosyayı siler"
     )
-    @DeleteMapping("/delete/{fileName}")
-    public ResponseDto<Boolean> deleteFile(@PathVariable String fileName) {
+    @DeleteMapping("/delete/{fileUrl}")
+    public ResponseDto<Boolean> deleteFile(@PathVariable String fileUrl) {
         try {
-            Path filePath = Paths.get(uploadDirectory, fileName);
+            Path filePath = Paths.get(uploadDirectory, fileUrl);
             if (Files.exists(filePath)) {
                 Files.delete(filePath);
                 return ResponseDto.success(true);
@@ -108,7 +108,30 @@ public class FileUploadRestController {
         } catch (IOException e) {
             return ResponseDto.error(ErrorCode.FILE_DELETE_ERROR);
         }
+    }*/
+   @Operation(
+           summary = "Dosya sil",
+           description = "Sunucudan belirtilen dosyayı siler"
+   )
+    @DeleteMapping("/delete")
+    public ResponseDto<Boolean> deleteFile(@RequestParam String fileUrl) {
+        try {
+             String fileName = fileUrl.replace("/uploads/", "");
+
+            Path filePath = Paths.get(uploadDirectory, fileName);
+
+            if (Files.exists(filePath)) {
+                Files.delete(filePath);
+                return ResponseDto.success(true);
+            }
+
+            return ResponseDto.error(ErrorCode.FILE_NOT_FOUND);
+
+        } catch (IOException e) {
+            return ResponseDto.error(ErrorCode.FILE_DELETE_ERROR);
+        }
     }
+
 
     private boolean isAllowedFileType(String filename) {
 //        if (filename == null) return false;

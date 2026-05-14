@@ -39,8 +39,6 @@ public class SecurityConfig {
                         session.sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 )
                 .authorizeHttpRequests(auth -> auth
-
-                        // 🔓 Ochiq endpointlar
                         .requestMatchers(
                                 "/api/auth/**",
                                 "/api/file/**",
@@ -52,12 +50,10 @@ public class SecurityConfig {
                                 "/swagger",
                                 "/swagger.html",
                                 "/v3/api-docs/**",
-                                "/api/auth/customer/like/**",
-                                "/api/seller/**",
                                 "/api/customer/**"
                         ).permitAll()
-                        .requestMatchers("/api/seller/**").hasRole("SELLER")
                         .requestMatchers("/api/admin/**").hasRole("ADMIN")
+                        .requestMatchers("/api/users/**").hasAnyRole("ADMIN" , "SUPER_ADMIN" , "STUDENT", "TEACHER")
                         .requestMatchers("/api/super-admin/**").hasRole("SUPER_ADMIN")
                         .anyRequest().authenticated()
                 );

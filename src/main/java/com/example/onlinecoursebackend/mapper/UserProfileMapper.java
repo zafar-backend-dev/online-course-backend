@@ -29,6 +29,7 @@ public class UserProfileMapper {
                 imageDto.setImgName(image.getImgName());
                 imageDto.setImgUrl(image.getImgUrl());
                 imageDto.setImgSize(image.getImgSize());
+                imageDto.setMain(image.getMain());
                 imageDto.setCreatedAt(image.getCreatedAt());
                 imageDto.setUpdatedAt(image.getUpdatedAt());
                 userImages.add(imageDto);

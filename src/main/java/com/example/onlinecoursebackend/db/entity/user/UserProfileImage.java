@@ -6,7 +6,7 @@ import java.time.LocalDateTime;
 import java.util.UUID;
 
 @Entity
-@Table(name = "user_profiles_images")
+@Table(name = "user_profile_images")
 public class UserProfileImage {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
@@ -17,10 +17,11 @@ public class UserProfileImage {
     private Long imgSize;
     private LocalDateTime createdAt = LocalDateTime.now();
     private LocalDateTime updatedAt = LocalDateTime.now();
-    @OneToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_profile_id", nullable = false)
     private UserProfile userProfile;
     private Boolean active = true;
+    private Boolean main = true;
     public UUID getId() {
         return id;
     }
@@ -83,5 +84,13 @@ public class UserProfileImage {
 
     public void setActive(Boolean active) {
         this.active = active;
+    }
+
+    public Boolean getMain() {
+        return main;
+    }
+
+    public void setMain(Boolean main) {
+        this.main = main;
     }
 }

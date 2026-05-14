@@ -1,6 +1,5 @@
 package com.example.onlinecoursebackend.service;
 
-import com.example.onlinecoursebackend.db.entity.user.User;
 import com.example.onlinecoursebackend.dto.ApiResponse;
 import com.example.onlinecoursebackend.dto.user.UserProfileResponseDto;
 import com.example.onlinecoursebackend.dto.user.req.AddEditSocialLinkRequestDto;
@@ -13,5 +12,8 @@ public interface UserService {
     ApiResponse<UserProfileResponseDto>  myProfile(UUID userid);
     ApiResponse<Void> createProfile(CreateProfileRequestDto req,UUID userid);
     ApiResponse<Void> addImage(AddProfileImageRequestDto req,UUID userid);
-    ApiResponse<Void> addEditSocialLink(AddEditSocialLinkRequestDto req,UUID userid);
+    ApiResponse<Void> deleteImage(UUID userid, UUID imageId);
+    ApiResponse<Void> addSocialLink(AddEditSocialLinkRequestDto req, UUID userid);
+    ApiResponse<Void> editSocialLink(AddEditSocialLinkRequestDto req, UUID userid,UUID socialLinkId);
+    ApiResponse<Void> deleteSocialLink(UUID userid,UUID socialLinkId);
 }

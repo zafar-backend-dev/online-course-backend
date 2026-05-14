@@ -87,6 +87,7 @@ public class UserProfileResponseDto {
         private Long imgSize;
         private LocalDateTime createdAt = LocalDateTime.now();
         private LocalDateTime updatedAt = LocalDateTime.now();
+        private Boolean main;
 
         public UUID getId() {
             return id;
@@ -134,6 +135,14 @@ public class UserProfileResponseDto {
 
         public void setUpdatedAt(LocalDateTime updatedAt) {
             this.updatedAt = updatedAt;
+        }
+
+        public void setMain(Boolean main) {
+            this.main = main;
+        }
+
+        public Boolean getMain() {
+            return main;
         }
     }
     public static class SocialLinkResponseDto {

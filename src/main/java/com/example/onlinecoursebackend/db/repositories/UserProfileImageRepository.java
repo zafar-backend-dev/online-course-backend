@@ -9,6 +9,6 @@ import java.util.List;
 import java.util.UUID;
 
 public interface UserProfileImageRepository extends JpaRepository<UserProfileImage, UUID> {
-    @Query("select upi from UserProfileImage upi where upi.userProfile.id = :userProfileId and upi.active=true")
+    @Query("select upi from UserProfileImage upi where upi.userProfile.id = :userProfileId and upi.active=true order by upi.createdAt asc")
     List<UserProfileImage> findByUserProfileId(@Param("userProfileId") UUID userProfileId);
 }

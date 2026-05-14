@@ -28,6 +28,7 @@ public class AuthUserResponse {
         this.profile = profile;
     }
 
+    @JsonIgnore
     private UserProfileResponseDto profile;
 
     private String accessToken;
