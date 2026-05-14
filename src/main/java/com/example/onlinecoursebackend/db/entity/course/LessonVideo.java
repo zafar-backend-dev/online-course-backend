@@ -34,7 +34,7 @@ public class LessonVideo {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "lesson_id", nullable = false)
     private Lesson lesson;
-    private Long fileSize;
+    private Long videoSize;
 
     @Column(nullable = false)
     private LocalDateTime createdAt = LocalDateTime.now();
@@ -70,11 +70,11 @@ public class LessonVideo {
     public LocalDateTime getUpdatedAt() { return updatedAt; }
     public void setUpdatedAt(LocalDateTime updatedAt) { this.updatedAt = updatedAt; }
 
-    public Long getFileSize() {
-        return fileSize;
+    public Long getVideoSize() {
+        return videoSize;
     }
 
-    public void setFileSize(Long fileSize) {
-        this.fileSize = fileSize;
+    public void setVideoSize(Long videoSize) {
+        this.videoSize = videoSize;
     }
 }

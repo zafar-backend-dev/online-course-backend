@@ -265,7 +265,7 @@ public class DataInitializer implements CommandLineRunner {
            superadmin.setBirthdate(LocalDate.of(2000, 1, 1));
            superadmin.setRole(UserRole.SUPER_ADMIN);
            superadmin.setPassword(passwordEncoder.encode("Zafar123@"));
-           superadmin.setUsername("zafar");
+           superadmin.setFullName("zafar");
            superadmin.setEmail("2507020036@ogr.kent.edu.tr");
            superadmin.setUsername("superadmin");
            superadmin.setEnabled(true);

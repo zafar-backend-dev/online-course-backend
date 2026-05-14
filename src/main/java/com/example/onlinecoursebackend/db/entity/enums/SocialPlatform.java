@@ -7,5 +7,6 @@ public enum SocialPlatform {
     INSTAGRAM,
     YOUTUBE,
     TELEGRAM,
-    WEBSITE
+    WEBSITE,
+    //OTHER
 }

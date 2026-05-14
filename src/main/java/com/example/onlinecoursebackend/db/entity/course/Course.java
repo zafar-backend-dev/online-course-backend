@@ -17,15 +17,19 @@ public class Course {
     private String description;
 
     private Boolean active;
+    @Enumerated(EnumType.STRING)
     private CourseStatus status;
     private Integer orderIndex;
     private String imageUrl;
+    private Long imgSize;
+    private String imgName;
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "category_id")
     private Category category;
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "teacher_id")
     private User teacher;
+    private String whatsappGroupLink;
 
     @Column(nullable = false)
     private LocalDateTime createdAt = LocalDateTime.now();
@@ -119,5 +123,29 @@ public class Course {
 
     public void setUpdatedAt(LocalDateTime updatedAt) {
         this.updatedAt = updatedAt;
+    }
+
+    public Long getImgSize() {
+        return imgSize;
+    }
+
+    public void setImgSize(Long imgSize) {
+        this.imgSize = imgSize;
+    }
+
+    public String getImgName() {
+        return imgName;
+    }
+
+    public void setImgName(String imgName) {
+        this.imgName = imgName;
+    }
+
+    public String getWhatsappGroupLink() {
+        return whatsappGroupLink;
+    }
+
+    public void setWhatsappGroupLink(String whatsappGroupLink) {
+        this.whatsappGroupLink = whatsappGroupLink;
     }
 }

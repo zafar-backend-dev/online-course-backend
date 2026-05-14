@@ -1,5 +1,6 @@
 package com.example.onlinecoursebackend.db.entity.course;
 
+import com.example.onlinecoursebackend.db.entity.enums.CourseStatus;
 import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
@@ -23,6 +24,8 @@ public class Module {
 
     @Column(nullable = false)
     private Boolean active = false;
+    @Enumerated(EnumType.STRING)
+    private CourseStatus status;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "course_id", nullable = false)
@@ -58,4 +61,12 @@ public class Module {
 
     public LocalDateTime getUpdatedAt() { return updatedAt; }
     public void setUpdatedAt(LocalDateTime updatedAt) { this.updatedAt = updatedAt; }
+
+    public CourseStatus getStatus() {
+        return status;
+    }
+
+    public void setStatus(CourseStatus status) {
+        this.status = status;
+    }
 }
