@@ -1,12 +1,8 @@
 package com.example.onlinecoursebackend.dto.category.req;
 
-
-import java.util.UUID;
-
-public class AddCategoryRequestDto {
+public class EditCategoryRequestDto {
     private String name;
     private Integer orderIndex;
-    private Long parentId;
 
     public String getName() {
         return name;
@@ -22,13 +18,5 @@ public class AddCategoryRequestDto {
 
     public void setOrderIndex(Integer orderIndex) {
         this.orderIndex = orderIndex;
-    }
-
-    public Long getParentId() {
-        return parentId;
-    }
-
-    public void setParentId(Long parentId) {
-        this.parentId = parentId;
     }
 }

@@ -52,7 +52,7 @@ public class SecurityConfig {
                                 "/v3/api-docs/**",
                                 "/api/customer/**"
                         ).permitAll()
-                        .requestMatchers("/api/admin/**").hasRole("ADMIN")
+                        .requestMatchers("/api/admin/**").hasAnyRole("ADMIN" , "SUPER_ADMIN")
                         .requestMatchers("/api/users/**").hasAnyRole("ADMIN" , "SUPER_ADMIN" , "STUDENT", "TEACHER")
                         .requestMatchers("/api/super-admin/**").hasRole("SUPER_ADMIN")
                         .anyRequest().authenticated()

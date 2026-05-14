@@ -28,7 +28,7 @@ public class Like {
     @JoinColumn(name = "lesson_id", nullable = false)
     private Lesson lesson;
 
-    private LocalDateTime createdAt = LocalDateTime.now();
+    private LocalDateTime likedAt = LocalDateTime.now();
 
     public UUID getId() { return id; }
     public void setId(UUID id) { this.id = id; }
@@ -39,6 +39,6 @@ public class Like {
     public Lesson getLesson() { return lesson; }
     public void setLesson(Lesson lesson) { this.lesson = lesson; }
 
-    public LocalDateTime getCreatedAt() { return createdAt; }
-    public void setCreatedAt(LocalDateTime createdAt) { this.createdAt = createdAt; }
+    public LocalDateTime getLikedAt() { return likedAt; }
+    public void setLikedAt(LocalDateTime likedAt) { this.likedAt = likedAt; }
 }
