@@ -5,6 +5,7 @@ import com.example.onlinecoursebackend.db.repositories.CategoryRepository;
 import com.example.onlinecoursebackend.dto.category.res.CategoryResponseDto;
 import org.springframework.stereotype.Component;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Component
@@ -50,14 +51,14 @@ public class CategoryMapper {
                 category.getParent() != null ? category.getParent().getId() : null
         );
 
-        // ✅ CHILDREN qo‘shish
         List<Category> children = categoryRepository.getChildren(category.getId());
 
-        List<CategoryResponseDto> childDtos = children.stream()
-                .map(child -> toDto(child, categoryRepository)) // recursion
-                .toList();
+        List<CategoryResponseDto> childDtos;
 
-        response.setChildren(childDtos);
+        childDtos = children.isEmpty() ? new ArrayList<>() : children.stream()
+                .map(child -> toDto(child, categoryRepository))
+                .toList();
+        response.setChildren( childDtos);
 
         return response;
     }
