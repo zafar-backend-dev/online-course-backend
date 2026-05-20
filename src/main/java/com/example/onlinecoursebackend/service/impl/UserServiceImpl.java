@@ -145,6 +145,11 @@ public class UserServiceImpl implements UserService {
         }
         image.setActive(false);
         userProfileImageRepository.save(image);
+        if (! userProfileImageRepository.findByUserProfileId(userid).isEmpty()) {
+            UserProfileImage firstImage = userProfileImageRepository.findByUserProfileId(userid).get(0);
+            firstImage.setMain(true);
+            userProfileImageRepository.save(firstImage);
+        }
         try {
             String fileName = image.getImgUrl().replace("/uploads/", "");
 

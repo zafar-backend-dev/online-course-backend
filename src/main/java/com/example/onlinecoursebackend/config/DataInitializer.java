@@ -265,13 +265,41 @@ public class DataInitializer implements CommandLineRunner {
            superadmin.setBirthdate(LocalDate.of(2000, 1, 1));
            superadmin.setRole(UserRole.SUPER_ADMIN);
            superadmin.setPassword(passwordEncoder.encode("Zafar123@"));
-           superadmin.setFullName("zafar");
+           superadmin.setFullName("Ziyatov Zafar");
            superadmin.setEmail("2507020036@ogr.kent.edu.tr");
            superadmin.setUsername("superadmin");
            superadmin.setEnabled(true);
            superadmin.setCreatedAt(LocalDateTime.now());
            superadmin.setUpdatedAt(LocalDateTime.now());
            userRepository.save(superadmin);
+
+
+
+           User teacher = new User();
+           teacher.setFullName("Default Teacher");
+           teacher.setBirthdate(LocalDate.of(1990, 5, 15));
+           teacher.setRole(UserRole.TEACHER);
+           teacher.setPassword(passwordEncoder.encode("122333"));
+           teacher.setEmail("teacher@example.com");
+           teacher.setUsername("teacher");
+           teacher.setEnabled(true);
+           teacher.setCreatedAt(LocalDateTime.now());
+           teacher.setUpdatedAt(LocalDateTime.now());
+           userRepository.save(teacher);
+
+
+
+           User student = new User();
+           student.setFullName("Default Student");
+           student.setBirthdate(LocalDate.of(2003, 9, 20));
+           student.setRole(UserRole.STUDENT);
+           student.setPassword(passwordEncoder.encode("122333"));
+           student.setEmail("student@example.com");
+           student.setUsername("student");
+           student.setEnabled(true);
+           student.setCreatedAt(LocalDateTime.now());
+           student.setUpdatedAt(LocalDateTime.now());
+           userRepository.save(student);
        }
     }
 }
