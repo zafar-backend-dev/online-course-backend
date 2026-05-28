@@ -53,8 +53,11 @@ public class SecurityConfig {
                                 "/api/customer/**"
                         ).permitAll()
                         .requestMatchers("/api/admin/**").hasAnyRole("ADMIN" , "SUPER_ADMIN")
+                        .requestMatchers("/api/teacher/**").hasAnyRole("ADMIN" , "SUPER_ADMIN","TEACHER")
                         .requestMatchers("/api/users/**").hasAnyRole("ADMIN" , "SUPER_ADMIN" , "STUDENT", "TEACHER")
+                        .requestMatchers("/api/student/**").hasAnyRole("ADMIN" , "SUPER_ADMIN" , "STUDENT", "TEACHER")
                         .requestMatchers("/api/super-admin/**").hasRole("SUPER_ADMIN")
+                        .requestMatchers("/api/admin/**").hasAnyRole("SUPER_ADMIN" , "ADMIN")
                         .anyRequest().authenticated()
                 );
 

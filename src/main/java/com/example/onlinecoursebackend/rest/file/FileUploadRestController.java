@@ -46,17 +46,14 @@ public class FileUploadRestController {
     @PostMapping(value = "/upload", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
     public ResponseDto<FileUploadResponseDto> upload(@RequestParam("file") MultipartFile file) {
         try {
-            // Fayl bo'shligini tekshirish
             if (file.isEmpty()) {
                 return ResponseDto.error(ErrorCode.FILE_IS_EMPTY);
             }
 
-            // Fayl hajmini tekshirish
             if (file.getSize() > maxFileSize) {
                 return ResponseDto.error(ErrorCode.FILE_TOO_LARGE);
             }
 
-            // Fayl turini tekshirish
             String originalFilename = file.getOriginalFilename();
             if (!isAllowedFileType(originalFilename)) {
                 return ResponseDto.error(ErrorCode.INVALID_FILE_TYPE);
